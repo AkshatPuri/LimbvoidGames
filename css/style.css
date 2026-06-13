@@ -62,6 +62,7 @@ body {
         linear-gradient(90deg, var(--page-grid) 2px, transparent 2px),
         var(--bg);
     background-size: 48px 48px;
+    animation: pageGridDrift 28s linear infinite;
     color: var(--text-secondary);
     font-family: var(--font-sans);
     font-size: 15px;
@@ -108,16 +109,39 @@ li {
         position: fixed;
         top: 0;
         left: 0;
-        width: 22px;
-        height: 22px;
+        width: 18px;
+        height: 18px;
         border: 2px solid var(--text);
-        border-radius: 50%;
+        border-radius: 0;
         pointer-events: none;
         transform: translate(-50%, -50%);
         z-index: 9999;
         opacity: 0;
-        mix-blend-mode: difference;
-        transition: width 0.16s ease, height 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+        transition: width 0.16s ease, height 0.16s ease, border-color 0.16s ease, opacity 0.16s ease, transform 0.05s linear;
+    }
+
+    .site-cursor::before,
+    .site-cursor::after {
+        content: "";
+        position: absolute;
+        background: currentColor;
+        opacity: 0.75;
+    }
+
+    .site-cursor::before {
+        width: 8px;
+        height: 2px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .site-cursor::after {
+        width: 2px;
+        height: 8px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .site-cursor.is-visible {
@@ -125,8 +149,8 @@ li {
     }
 
     .site-cursor.is-hovering {
-        width: 34px;
-        height: 34px;
+        width: 30px;
+        height: 30px;
         border-color: var(--accent);
     }
 }
@@ -189,12 +213,27 @@ li {
     padding: 8px 16px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.global-header .resume-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
+    transform: translateX(-110%);
+    transition: transform 0.42s ease;
 }
 
 .global-header .resume-link:hover {
     border-color: var(--accent);
     color: var(--accent);
     background: var(--bg-alt);
+}
+
+.global-header .resume-link:hover::before {
+    transform: translateX(110%);
 }
 
 .global-header .theme-btn {
@@ -256,12 +295,41 @@ li {
     position: relative;
     z-index: 1;
     box-shadow: 0 1px 0 var(--grid-line), 0 18px 34px -28px var(--card-shadow);
+    opacity: 0;
+    transform: scale(0);
+    isolation: isolate;
+}
+
+.bento-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-left: 3px solid transparent;
+    pointer-events: none;
+    z-index: 0;
+    transition: border-color 0.24s ease, opacity 0.24s ease;
+    opacity: 0;
+}
+
+.bento-card:hover::before {
+    border-left-color: var(--accent);
+    opacity: 0.85;
+}
+
+.bento-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.bento-card.is-popping {
+    animation: cardPopIn 560ms cubic-bezier(0.2, 1.35, 0.32, 1) both;
+    animation-delay: var(--pop-delay, 0ms);
 }
 
 .bento-card:hover {
     box-shadow: 0 1px 0 var(--grid-line), 0 28px 50px -30px rgba(0, 0, 0, 0.28);
     z-index: 5;
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 }
 
 [data-theme="dark"] .bento-card:hover {
@@ -387,6 +455,19 @@ li {
     border-bottom: 1px solid var(--border);
     padding-bottom: 8px;
     margin-bottom: 4px;
+    position: relative;
+}
+
+.card-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 34px;
+    height: 2px;
+    background: var(--accent);
+    transform-origin: left;
+    animation: headingSignal 2.8s ease-in-out infinite;
 }
 
 .skills-grid {
@@ -473,7 +554,7 @@ li {
 .project-card::before {
     border: 2px solid var(--matrix-line);
     opacity: 0.58;
-    animation: matrixBlink 2.6s steps(2, end) infinite;
+    animation: matrixBlink 2.6s steps(2, end) infinite, frameJitter 5.2s steps(1, end) infinite;
 }
 
 .project-card::after {
@@ -507,6 +588,7 @@ li {
     position: relative;
     z-index: 2;
     background: var(--bg);
+    isolation: isolate;
 }
 
 .project-card .card-media img {
@@ -619,6 +701,76 @@ li {
     }
     50% {
         opacity: 0.5;
+    }
+}
+
+@keyframes pageGridDrift {
+    from {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    to {
+        background-position: 48px 48px, 48px 48px, 0 0;
+    }
+}
+
+@keyframes cardPopIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    55% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes headingSignal {
+    0%, 100% {
+        transform: scaleX(0.35);
+        opacity: 0.45;
+    }
+    50% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@keyframes frameJitter {
+    0%, 88%, 100% {
+        transform: translate(0, 0);
+    }
+    90% {
+        transform: translate(2px, 0);
+    }
+    92% {
+        transform: translate(-1px, 1px);
+    }
+    94% {
+        transform: translate(0, -1px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .bento-card {
+        opacity: 1;
+        transform: none;
     }
 }
 

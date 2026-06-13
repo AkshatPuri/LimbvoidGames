@@ -3,6 +3,11 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // DOM Elements
     const scrollUpBtn = document.getElementById('scrollUpBtn');
     const themeToggle = document.getElementById('themeToggle');
@@ -105,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    setupCardPopIn();
+
     function pickRandom(items) {
         return items[Math.floor(Math.random() * items.length)];
     }
@@ -119,6 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function canPackRemainingRows(count) {
         return count === 0 || count === 3 || count === 4 || count >= 6;
+    }
+
+    function setupCardPopIn() {
+        const cards = [...document.querySelectorAll('.bento-card')];
+        cards.forEach((card, index) => {
+            const randomDelay = randomBetween(20, 420);
+            const steppedDelay = Math.min(index * 20, 220);
+            card.style.setProperty('--pop-delay', `${randomDelay + steppedDelay}ms`);
+            card.classList.add('is-popping');
+        });
     }
 
     function setupCircleCursor() {
@@ -193,4 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+});
+
+window.addEventListener('pageshow', () => {
+    window.scrollTo(0, 0);
 });
