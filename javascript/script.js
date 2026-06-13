@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo(0, 0);
 
     // DOM Elements
-    const scrollUpBtn = document.getElementById('scrollUpBtn');
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     let projectCards = [...document.querySelectorAll('.project-card')];
@@ -192,24 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ---- Scroll-to-Top Button Visibility ----
-    if (scrollUpBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                scrollUpBtn.classList.add('show');
-            } else {
-                scrollUpBtn.classList.remove('show');
-            }
-        });
-
-        // Scroll-to-Top Click Event
-        scrollUpBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
 });
 
 window.addEventListener('pageshow', () => {

@@ -782,40 +782,6 @@ li {
 }
 
 /* ==========================================
-   SCROLL-TO-TOP BUTTON
-   ========================================== */
-.scroll-up-btn {
-    position: fixed;
-    height: 40px;
-    width: 40px;
-    background: var(--bg-alt);
-    color: var(--text);
-    right: 24px;
-    bottom: 24px;
-    text-align: center;
-    line-height: 40px;
-    z-index: 999;
-    font-size: 16px;
-    border-radius: var(--radius);
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: var(--transition);
-    border: 1px solid var(--border);
-}
-
-.scroll-up-btn:hover {
-    background: var(--text);
-    color: var(--bg);
-    border-color: var(--text);
-}
-
-.scroll-up-btn.show {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* ==========================================
    FOOTER
    ========================================== */
 .footer {
@@ -836,7 +802,6 @@ li {
     
     .unified-grid {
         grid-template-columns: repeat(4, 1fr);
-        background-size: calc((100% - 54px) / 4) 100%, 100% 96px;
     }
     
     .span-4 {
@@ -875,7 +840,6 @@ li {
         grid-template-columns: 1fr;
         gap: 16px;
         padding: 8px;
-        background-size: 100% 92px, 100% 92px;
     }
     
     .span-4, .span-3, .span-2 {
