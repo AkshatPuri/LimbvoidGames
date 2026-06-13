@@ -38,9 +38,3 @@ python tools/add_project_card.py --print-only --title "My Tool" --image "https:/
 ```
 
 The script can copy a local image into `img/`, download an image URL into `img/`, add tags, add links, and mark a card as `--featured` or `--wip`.
-
-If `python` is not on PATH in this Codex workspace, use the bundled runtime:
-
-```powershell
-& "C:\Users\Akshat\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" tools\add_project_card.py --help
-```
