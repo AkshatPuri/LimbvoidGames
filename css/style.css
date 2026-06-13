@@ -42,6 +42,57 @@
     --cool-accent: #86c5e8;
 }
 
+[data-theme="arcade"] {
+    --bg: #090c11;              /* Arcade cabinet black */
+    --bg-alt: #151922;          /* Deep panel surface */
+    --text: #fff5d6;            /* Warm pixel-glow text */
+    --text-secondary: #c6d4dc;  /* Cool readable body text */
+    --text-muted: #81939e;      /* Muted terminal metadata */
+    --border: #2d3743;          /* Quiet steel divider */
+    --border-hover: #f2b84b;
+    --grid-line: rgba(242, 184, 75, 0.18);
+    --page-grid: rgba(91, 210, 203, 0.085);
+    --matrix-line: rgba(91, 210, 203, 0.26);
+    --matrix-glow: rgba(242, 184, 75, 0.16);
+    --accent: #f2b84b;          /* Coin-op amber */
+    --accent-hover: #ffd775;
+    --cool-accent: #5bd2cb;     /* CRT cyan counterpoint */
+}
+
+[data-theme="forest"] {
+    --bg: #0c120f;              /* Deep pine base */
+    --bg-alt: #172018;          /* Moss-dark panel surface */
+    --text: #f0ead8;            /* Warm parchment text */
+    --text-secondary: #c3cbb6;  /* Soft herb body text */
+    --text-muted: #83917e;      /* Quiet sage metadata */
+    --border: #303c2f;          /* Organic divider */
+    --border-hover: #d7a955;
+    --grid-line: rgba(140, 172, 112, 0.18);
+    --page-grid: rgba(140, 172, 112, 0.075);
+    --matrix-line: rgba(215, 169, 85, 0.28);
+    --matrix-glow: rgba(111, 171, 117, 0.15);
+    --accent: #d7a955;          /* Brass highlight */
+    --accent-hover: #f0ca78;
+    --cool-accent: #6fab75;     /* Moss counterpoint */
+}
+
+[data-theme="mono"] {
+    --bg: #f3f4f1;              /* Gallery paper base */
+    --bg-alt: #ffffff;          /* Crisp white surface */
+    --text: #16181a;            /* Ink black */
+    --text-secondary: #4d5358;  /* Neutral body text */
+    --text-muted: #848b91;      /* Soft graphite metadata */
+    --border: #c9ced2;          /* Clean divider */
+    --border-hover: #16181a;
+    --grid-line: rgba(22, 24, 26, 0.16);
+    --page-grid: rgba(22, 24, 26, 0.07);
+    --matrix-line: rgba(22, 24, 26, 0.24);
+    --matrix-glow: rgba(201, 61, 43, 0.12);
+    --accent: #c93d2b;          /* Editorial red */
+    --accent-hover: #942c20;
+    --cool-accent: #2d6978;     /* Blue-gray counterpoint */
+}
+
 /* ==========================================
    RESET & BASE STYLES
    ========================================== */

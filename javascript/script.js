@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
+    const themes = ['light', 'dark', 'arcade', 'forest', 'mono'];
+    const themeMeta = {
+        light: { icon: 'fas fa-moon', label: 'Light theme' },
+        dark: { icon: 'fas fa-sun', label: 'Dark theme' },
+        arcade: { icon: 'fas fa-gamepad', label: 'Arcade theme' },
+        forest: { icon: 'fas fa-tree', label: 'Forest theme' },
+        mono: { icon: 'fas fa-adjust', label: 'Mono theme' }
+    };
     let projectCards = [...document.querySelectorAll('.project-card')];
 
     // ---- Theme Toggle Logic ----
@@ -20,22 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
+            setTheme(getNextTheme(currentTheme));
         });
     }
 
     setupCircleCursor();
 
-    // Keep Bonfire projects prominent, then randomize the supporting project order.
+    // Keep every Featured Release at the top, then randomize the supporting project order.
     const projectGrid = projectCards[0]?.parentElement;
-    const bonfireCards = projectCards.slice(0, 2);
-    const supportingCards = shuffle(projectCards.slice(2));
-    projectCards = [
-        ...bonfireCards,
-        supportingCards.shift(),
-        ...shuffle(supportingCards)
-    ].filter(Boolean);
+    const featuredCards = projectCards.filter((card) => card.querySelector('.card-badge'));
+    const supportingCards = shuffle(projectCards.filter((card) => !card.querySelector('.card-badge')));
+    projectCards = [...featuredCards, ...supportingCards];
 
     if (projectGrid) {
         projectCards.forEach((card) => projectGrid.appendChild(card));
@@ -198,20 +201,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getStoredTheme() {
         try {
-            return localStorage.getItem('theme') || 'light';
+            const storedTheme = localStorage.getItem('theme');
+            return themes.includes(storedTheme) ? storedTheme : 'light';
         } catch (error) {
             return 'light';
         }
     }
 
     function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
+        const activeTheme = themes.includes(theme) ? theme : 'light';
+        document.documentElement.setAttribute('data-theme', activeTheme);
         try {
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('theme', activeTheme);
         } catch (error) {
             // Theme still changes even if storage is unavailable.
         }
-        updateThemeIcon(theme);
+        updateThemeIcon(activeTheme);
+    }
+
+    function getNextTheme(currentTheme) {
+        const currentIndex = themes.indexOf(currentTheme);
+        return themes[(currentIndex + 1) % themes.length];
     }
 
     function updateThemeIcon(theme) {
@@ -219,11 +229,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (theme === 'dark') {
-            themeIcon.className = 'fas fa-sun';
-        } else {
-            themeIcon.className = 'fas fa-moon';
-        }
+        const nextTheme = getNextTheme(theme);
+        themeIcon.className = themeMeta[theme].icon;
+        themeToggle?.setAttribute('aria-label', `Switch to ${themeMeta[nextTheme].label.toLowerCase()}`);
+        themeToggle?.setAttribute('title', themeMeta[theme].label);
     }
 
 });
