@@ -1,39 +1,48 @@
-$(document).ready(function(){
-    $(window).scroll(function(){
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        }else{
-            $('.navbar').removeClass("sticky");
+/* ==========================================================================
+   VANILLA JS - Theme Switcher & Scroll-to-Top Button
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    // ---- Theme Toggle Logic ----
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            themeIcon.className = 'fas fa-moon';
         }
-        if(this.scrollY > 500){
-            $('.scroll-up-btn').addClass("show");
-        }else{
-            $('.scroll-up-btn').removeClass("show");
+    }
+
+    // ---- Scroll-to-Top Button Visibility ----
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            scrollUpBtn.classList.add('show');
+        } else {
+            scrollUpBtn.classList.remove('show');
         }
     });
 
-    // Slide-Up script
-
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-
-    });
-
-    // Toggle menu/Navbar script
-
-    $('.menu-btn').click(function(){
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-    //Typing Animation script
-
-    var typed = new Typed(".typing", {
-        strings:["a Student.", "a Game Programmer."],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
+    // Scroll-to-Top Click Event
+    scrollUpBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 });
