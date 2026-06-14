@@ -147,8 +147,9 @@ li {
 @media (pointer: fine) {
     body,
     a,
-    button {
-        cursor: none;
+    button,
+    .project-card {
+        cursor: none !important;
     }
 
     .site-cursor {
@@ -726,6 +727,10 @@ li {
     overflow: visible;
     box-shadow:
         0 20px 38px -30px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:has(.card-links a) {
+    cursor: pointer;
 }
 
 .project-card:hover {

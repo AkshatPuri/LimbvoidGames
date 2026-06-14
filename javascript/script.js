@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setupProjectGrid(projectCards);
+    setupProjectCardLinks();
     setupCircleCursor();
     setupCardPopIn();
     setupBioTyping();
@@ -210,8 +211,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.querySelectorAll('a, button, .project-card').forEach((element) => {
+            if (element.classList.contains('project-card') && !element.querySelector('.card-links a')) {
+                return;
+            }
             element.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
             element.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
+        });
+    }
+
+    function setupProjectCardLinks() {
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card) => {
+            const firstLink = card.querySelector('.card-links a');
+            if (!firstLink) {
+                return;
+            }
+
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('a') || event.target.closest('button')) {
+                    return;
+                }
+                window.open(firstLink.href, '_blank', 'noopener,noreferrer');
+            });
         });
     }
 
