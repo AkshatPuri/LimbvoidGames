@@ -21,34 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const projectCards = [...document.querySelectorAll('.project-card')];
     const pinnedFeaturedTitles = ['The Bonfire 2: Uncharted Shores', 'Metal Haven'];
-    const featuredProjectLayouts = [
-        [
-            { span: 4, height: 235 },
-            { span: 2, height: 220 },
-            { span: 2, height: 205 },
-            { span: 2, height: 210 }
-        ],
-        [
-            { span: 3, height: 230 },
-            { span: 3, height: 230 },
-            { span: 2, height: 205 },
-            { span: 2, height: 210 }
-        ],
-        [
-            { span: 4, height: 225 },
-            { span: 2, height: 235 },
-            { span: 2, height: 215 },
-            { span: 3, height: 215 }
-        ]
+    const pinnedFeaturedLayouts = [
+        { span: 4, height: 235 },
+        { span: 2, height: 220 }
     ];
     const rowPatterns = [
         [4, 2, 2],
-        [3, 3, 2],
         [3, 2, 3],
         [2, 3, 3],
-        [2, 4, 2],
-        [2, 2, 4],
-        [2, 2, 2, 2]
+        [2, 3, 2],
+        [2, 2, 4]
     ];
     const heightBands = [
         { min: 178, max: 210 },
@@ -108,8 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const orderedCards = [...featuredCards, ...supportingCards];
 
         orderedCards.forEach((card) => projectGrid.appendChild(card));
-        const supportingStartIndex = applyFeaturedLayouts(orderedCards);
-        applySupportingLayouts(orderedCards, supportingStartIndex);
+        applyOrderedProjectLayouts(orderedCards);
     }
 
     function isFeaturedCard(card) {
@@ -133,41 +114,41 @@ document.addEventListener('DOMContentLoaded', () => {
         return card.querySelector('.card-title')?.textContent.trim() || '';
     }
 
-    function applyFeaturedLayouts(cards) {
-        const layouts = pickRandom(featuredProjectLayouts);
-        layouts.forEach((layout, index) => {
-            const card = cards[index];
-            if (!card) {
-                return;
-            }
+    function applyOrderedProjectLayouts(cards) {
+        let rowFill = 0;
+        const queuedSpans = [];
+
+        cards.forEach((card, index) => {
+            const layout = pinnedFeaturedLayouts[index] || createFlexibleProjectLayout(cards.length - index, rowFill, queuedSpans);
 
             applyProjectLayout(card, layout);
-            card.classList.add('featured-project-card');
+            rowFill = (rowFill + layout.span) % 8;
+
+            if (isFeaturedCard(card)) {
+                card.classList.add('featured-project-card');
+            }
         });
-        return Math.min(layouts.length, cards.length);
     }
 
-    function applySupportingLayouts(cards, startIndex) {
-        let cardIndex = startIndex;
+    function createFlexibleProjectLayout(remaining, rowFill, queuedSpans) {
+        const heightBand = pickRandom(heightBands);
+        return {
+            span: pickNextSpan(remaining, rowFill, queuedSpans),
+            height: randomBetween(heightBand.min, heightBand.max)
+        };
+    }
 
-        while (cardIndex < cards.length) {
-            const remaining = cards.length - cardIndex;
-            const pattern = pickRowPattern(remaining);
-
-            pattern.forEach((span) => {
-                const card = cards[cardIndex];
-                if (!card) {
-                    return;
-                }
-
-                const heightBand = pickRandom(heightBands);
-                applyProjectLayout(card, {
-                    span,
-                    height: randomBetween(heightBand.min, heightBand.max)
-                });
-                cardIndex += 1;
-            });
+    function pickNextSpan(remaining, rowFill, queuedSpans) {
+        if (queuedSpans.length > 0) {
+            return queuedSpans.shift();
         }
+
+        if (rowFill > 0) {
+            return 8 - rowFill;
+        }
+
+        queuedSpans.push(...pickRowPattern(remaining));
+        return queuedSpans.shift();
     }
 
     function pickRowPattern(remaining) {
