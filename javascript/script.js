@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCardPopIn();
     setupBioTyping();
     setupIntroPhotoLock();
+    setupVideoModal();
 
     function pickRandom(items) {
         return items[Math.floor(Math.random() * items.length)];
@@ -364,6 +365,68 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         document.fonts?.ready.then(syncPhotoSize);
+    }
+
+    function setupVideoModal() {
+        const videoBtn = document.querySelector('.video-btn');
+        const videoModal = document.getElementById('videoModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const iframe = document.getElementById('showreelIframe');
+
+        if (!videoBtn || !videoModal || !iframe) {
+            return;
+        }
+
+        // Extract YouTube ID from link
+        const originalUrl = videoBtn.getAttribute('href');
+        let videoId = 'whk_Isv_YpY'; // fallback ID
+        if (originalUrl) {
+            const urlMatch = originalUrl.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+            if (urlMatch) {
+                videoId = urlMatch[1];
+            }
+        }
+
+        const openModal = (e) => {
+            if (e.button !== 0 || e.ctrlKey || e.shiftKey || e.metaKey || e.altKey) {
+                return;
+            }
+            e.preventDefault();
+
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`;
+            videoModal.classList.add('open');
+            videoModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+
+            if (closeModalBtn) {
+                closeModalBtn.focus();
+            }
+        };
+
+        const closeModal = () => {
+            videoModal.classList.remove('open');
+            videoModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+            iframe.src = '';
+            videoBtn.focus();
+        };
+
+        videoBtn.addEventListener('click', openModal);
+        
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
+        
+        if (modalBackdrop) {
+            modalBackdrop.addEventListener('click', closeModal);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('open')) {
+                closeModal();
+            }
+        });
     }
 
     function setTheme(theme) {

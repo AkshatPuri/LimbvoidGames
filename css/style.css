@@ -1445,3 +1445,118 @@ li {
         height: 34px;
     }
 }
+
+/* ==========================================
+   VIDEO OVERLAY MODAL
+   ========================================== */
+body.modal-open {
+    overflow: hidden;
+}
+
+.video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.video-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1;
+    transition: opacity 0.35s ease;
+}
+
+.video-modal-content {
+    position: relative;
+    width: min(90vw, 960px);
+    max-width: 100%;
+    z-index: 2;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    box-shadow: 0 32px 64px -24px rgba(0, 0, 0, 0.5);
+    padding: 12px;
+    transform: scale(0.92);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.video-modal.open .video-modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Close Button */
+.video-modal-close {
+    position: absolute;
+    top: -46px;
+    right: 0;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: var(--transition);
+    z-index: 3;
+}
+
+.video-modal-close:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.video-modal-close:active {
+    transform: translate(1px, 1px);
+}
+
+/* Responsive 16:9 Wrapper */
+.video-modal-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-modal-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Adjustments for mobile viewports */
+@media (max-width: 768px) {
+    .video-modal-content {
+        width: calc(100% - 24px);
+        padding: 8px;
+    }
+    
+    .video-modal-close {
+        top: -42px;
+        width: 34px;
+        height: 34px;
+    }
+}
