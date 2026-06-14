@@ -822,6 +822,19 @@ li {
         0 34px 56px -34px rgba(0, 0, 0, 0.45);
 }
 
+.work-grid:has(.project-card:hover) .project-card:not(:hover),
+.work-grid:has(.project-card:focus-within) .project-card:not(:focus-within) {
+    filter: blur(2px) saturate(0.75) brightness(0.82);
+    opacity: 0.72;
+}
+
+.work-grid:has(.project-card:hover) .project-card:hover,
+.work-grid:has(.project-card:focus-within) .project-card:focus-within {
+    filter: none;
+    opacity: 1;
+    z-index: 8;
+}
+
 .featured-project-card .card-title {
     font-size: 16px;
 }
@@ -925,9 +938,8 @@ li {
     padding: clamp(0.75rem, 1.6vh, 0.95rem) clamp(0.8rem, 1.6vw, 1rem);
     display: flex;
     flex-grow: 1;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 16px;
     background: var(--bg-alt);
     position: relative;
@@ -943,10 +955,10 @@ li {
 
 .project-card .card-meta {
     display: flex;
-    flex: 1 1 11rem;
+    flex: 1;
     flex-direction: column;
     gap: 5px;
-    min-width: min(100%, 10rem);
+    width: 100%;
     overflow: hidden;
 }
 
@@ -1005,8 +1017,8 @@ li {
     flex-wrap: wrap;
     gap: 12px;
     align-items: center;
-    justify-content: flex-end;
-    margin-left: auto;
+    align-self: flex-end;
+    margin-top: auto;
     flex-shrink: 0;
 }
 
@@ -1030,7 +1042,8 @@ li {
 /* WIP Status Badge */
 .project-card .card-status {
     flex-shrink: 0;
-    margin-left: auto;
+    align-self: flex-end;
+    margin-top: auto;
 }
 
 .project-card .status-wip {
