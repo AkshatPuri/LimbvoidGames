@@ -731,6 +731,11 @@ li {
 
 .project-card:has(.card-links a) {
     cursor: pointer;
+    transition: scale 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:has(.card-links a):hover {
+    scale: 1.02;
 }
 
 .project-card:hover {
@@ -1265,7 +1270,6 @@ li {
 
     .bento-card:hover {
         transform: translateY(-4px);
-        animation: none;
     }
     
     .social-rail {
