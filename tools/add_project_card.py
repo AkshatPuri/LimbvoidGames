@@ -123,7 +123,7 @@ def get_all_featured_titles_from_html() -> list[str]:
         blocks = index_html.split("<!--")
         featured_titles = []
         for block in blocks:
-            if "Featured Release" in block:
+            if "Featured" in block:
                 title_match = re.search(r'<h3 class="card-title">\s*([^<]+)\s*</h3>', block)
                 if title_match:
                     title = html.unescape(title_match.group(1).strip())
@@ -213,7 +213,7 @@ def build_card(
     escaped_title = html.escape(title)
     escaped_role = html.escape(role)
     tags_html = "\n".join(f'                                <span class="tag">{html.escape(tag)}</span>' for tag in tags)
-    badge_html = '                            <span class="card-badge">Featured Release</span>\n' if featured else ""
+    badge_html = '                            <span class="card-badge">Featured</span>\n' if featured else ""
     action_html = build_action_html(links, wip)
     action_block = f"\n{action_html}" if action_html else ""
     card_classes = "bento-card span-2 project-card is-test-card" if test_card else "bento-card span-2 project-card"
@@ -329,9 +329,9 @@ class ProjectCardBuilderGUI:
         self.var_featured = tk.BooleanVar(value=False)
         self.var_wip = tk.BooleanVar(value=False)
 
-        chk_featured = ttk.Checkbutton(check_frame, text="Featured Release", variable=self.var_featured)
+        chk_featured = ttk.Checkbutton(check_frame, text="Featured", variable=self.var_featured)
         chk_featured.pack(side=tk.LEFT, padx=(0, 15))
-        ToolTip(chk_featured, "Check to show a 'Featured Release' badge on the card")
+        ToolTip(chk_featured, "Check to show a 'Featured' badge on the card")
 
         chk_wip = ttk.Checkbutton(check_frame, text="WIP Status", variable=self.var_wip)
         chk_wip.pack(side=tk.LEFT)
