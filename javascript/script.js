@@ -20,21 +20,25 @@ document.addEventListener('DOMContentLoaded', () => {
         mono: { icon: 'fas fa-adjust', label: 'Mono theme' }
     };
     const projectCards = [...document.querySelectorAll('.project-card')];
+    const pinnedFeaturedTitles = ['The Bonfire 2: Uncharted Shores', 'Metal Haven'];
     const featuredProjectLayouts = [
         [
             { span: 4, height: 235 },
             { span: 2, height: 220 },
-            { span: 2, height: 205 }
+            { span: 2, height: 205 },
+            { span: 2, height: 210 }
         ],
         [
             { span: 3, height: 230 },
             { span: 3, height: 230 },
-            { span: 2, height: 205 }
+            { span: 2, height: 205 },
+            { span: 2, height: 210 }
         ],
         [
             { span: 4, height: 225 },
             { span: 2, height: 235 },
-            { span: 2, height: 215 }
+            { span: 2, height: 215 },
+            { span: 3, height: 215 }
         ]
     ];
     const rowPatterns = [
@@ -99,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const featuredCards = cards.filter(isFeaturedCard);
+        const featuredCards = orderFeaturedCards(cards.filter(isFeaturedCard));
         const supportingCards = shuffle(cards.filter((card) => !isFeaturedCard(card)));
         const orderedCards = [...featuredCards, ...supportingCards];
 
@@ -110,6 +114,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function isFeaturedCard(card) {
         return Boolean(card.querySelector('.card-badge'));
+    }
+
+    function orderFeaturedCards(cards) {
+        const pinnedRanks = new Map(pinnedFeaturedTitles.map((title, index) => [title, index]));
+
+        return cards
+            .map((card, index) => ({ card, index }))
+            .sort((left, right) => {
+                const leftRank = pinnedRanks.get(getCardTitle(left.card)) ?? Number.MAX_SAFE_INTEGER;
+                const rightRank = pinnedRanks.get(getCardTitle(right.card)) ?? Number.MAX_SAFE_INTEGER;
+                return leftRank - rightRank || left.index - right.index;
+            })
+            .map(({ card }) => card);
+    }
+
+    function getCardTitle(card) {
+        return card.querySelector('.card-title')?.textContent.trim() || '';
     }
 
     function applyFeaturedLayouts(cards) {
