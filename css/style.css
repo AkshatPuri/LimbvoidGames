@@ -104,28 +104,25 @@
     /* Moss counterpoint */
 }
 
+
 [data-theme="mono"] {
-    --bg: #f3f4f1;
-    /* Gallery paper base */
-    --bg-alt: #ffffff;
-    /* Crisp white surface */
-    --text: #16181a;
-    /* Ink black */
-    --text-secondary: #4d5358;
-    /* Neutral body text */
-    --text-muted: #848b91;
-    /* Soft graphite metadata */
-    --border: #c9ced2;
-    /* Clean divider */
-    --grid-line: rgba(22, 24, 26, 0.16);
-    --page-grid: rgba(22, 24, 26, 0.07);
-    --matrix-line: rgba(22, 24, 26, 0.24);
-    --matrix-glow: rgba(201, 61, 43, 0.12);
-    --accent: #c93d2b;
-    /* Editorial red */
-    --accent-hover: #942c20;
-    --cool-accent: #2d6978;
-    /* Blue-gray counterpoint */
+    --bg: #050505;
+    --bg-alt: #111111;
+
+    --text: #f5f5f5;
+    --text-secondary: #c8c8c8;
+    --text-muted: #7f7f7f;
+
+    --border: #242424;
+
+    --grid-line: rgba(255,255,255,0.06);
+    --page-grid: rgba(255,255,255,0.03);
+    --matrix-line: rgba(255,255,255,0.08);
+    --matrix-glow: rgba(255,255,255,0.04);
+
+    --accent: #ffffff;
+    --accent-hover: #d8d8d8;
+    --cool-accent: #8a8a8a;
 }
 
 /* ==========================================
@@ -1057,6 +1054,32 @@ li {
     align-items: center;
     gap: 4px;
 }
+
+/* ------------------------------------------
+   Images
+   ------------------------------------------ */
+
+[data-theme="mono"] .profile-photo {
+    filter: grayscale(100%) contrast(1.15);
+    transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+[data-theme="mono"] .photo-card:hover .profile-photo {
+    filter: grayscale(0%) contrast(1.1);
+}
+
+[data-theme="mono"] .project-card .card-media img {
+    filter: grayscale(100%) contrast(1.05);
+    transition:
+        filter 0.35s ease,
+        transform 0.35s ease;
+}
+
+[data-theme="mono"] .project-card:hover .card-media img {
+    filter: grayscale(0%) contrast(1.05);
+}
+
+
 
 @keyframes matrixBlink {
 
