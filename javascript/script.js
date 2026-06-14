@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectCards = [...document.querySelectorAll('.project-card')];
     const pinnedFeaturedTitles = ['The Tree Creator', 'The Bonfire 2: Uncharted Shores', 'Metal Haven', 'The Bonfire: Forsaken Lands'];
     const pinnedFeaturedLayouts = [
-        { span: 4, height: 235 },
-        { span: 2, height: 220 }
+        { span: 4, height: 'clamp(12.5rem, 26vh, 16rem)' },
+        { span: 2, height: 'clamp(11.5rem, 24vh, 15rem)' }
     ];
     const rowPatterns = [
         [4, 2, 2],
@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         [2, 2, 4]
     ];
     const heightBands = [
-        { min: 178, max: 210 },
-        { min: 190, max: 228 },
-        { min: 202, max: 238 }
+        'clamp(10.5rem, 22vh, 13.5rem)',
+        'clamp(11rem, 24vh, 14.5rem)',
+        'clamp(11.5rem, 25vh, 15rem)'
     ];
 
     // ---- Theme Toggle Logic ----
@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCircleCursor();
     setupCardPopIn();
     setupBioTyping();
-    setupIntroPhotoLock();
     setupVideoModal();
 
     function pickRandom(items) {
@@ -137,10 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createFlexibleProjectLayout(remaining, rowFill, queuedSpans) {
-        const heightBand = pickRandom(heightBands);
         return {
             span: pickNextSpan(remaining, rowFill, queuedSpans),
-            height: randomBetween(heightBand.min, heightBand.max)
+            height: pickRandom(heightBands)
         };
     }
 
@@ -184,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyProjectLayout(card, layout) {
         card.style.setProperty('--project-span', layout.span);
-        card.style.setProperty('--project-height', `${layout.height}px`);
+        card.style.setProperty('--project-height', layout.height);
     }
 
     function setupCardPopIn() {
@@ -325,42 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         window.setTimeout(typeNextCharacter, 520);
-    }
-
-    function setupIntroPhotoLock() {
-        const bioCard = document.querySelector('.intro-grid .bio-card');
-        const profileSide = document.querySelector('.intro-grid .profile-side');
-        const sideBySideQuery = window.matchMedia('(min-width: 981px)');
-        if (!bioCard || !profileSide) {
-            return;
-        }
-
-        let frameId = null;
-        const syncPhotoSize = () => {
-            if (frameId) {
-                window.cancelAnimationFrame(frameId);
-            }
-
-            frameId = window.requestAnimationFrame(() => {
-                frameId = null;
-
-                if (!sideBySideQuery.matches) {
-                    profileSide.style.removeProperty('--photo-size');
-                    return;
-                }
-
-                const bioHeight = bioCard.offsetHeight;
-                if (bioHeight > 0) {
-                    profileSide.style.setProperty('--photo-size', `${bioHeight}px`);
-                }
-            });
-        };
-
-        syncPhotoSize();
-        window.addEventListener('resize', syncPhotoSize);
-        sideBySideQuery.addEventListener('change', syncPhotoSize);
-
-        document.fonts?.ready.then(syncPhotoSize);
     }
 
     function setupVideoModal() {
