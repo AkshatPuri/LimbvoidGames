@@ -22,8 +22,8 @@
     --cool-accent: #2f6f8f;
     /* Cool counterpoint */
 
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-heading: 'Inter', sans-serif;
+    --font-sans: 'Noto Serif Khitan Small Script', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Noto Serif Khitan Small Script', serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
     --radius: 0px;
