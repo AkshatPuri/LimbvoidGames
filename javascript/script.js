@@ -360,10 +360,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', syncPhotoSize);
         sideBySideQuery.addEventListener('change', syncPhotoSize);
 
-        if ('ResizeObserver' in window) {
-            new ResizeObserver(syncPhotoSize).observe(bioCard);
-        }
-
         document.fonts?.ready.then(syncPhotoSize);
     }
 
