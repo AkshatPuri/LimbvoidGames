@@ -32,24 +32,17 @@
 }
 
 [data-theme="dark"] {
-    --bg: #11171d;
-    /* Deep graphite base */
-    --bg-alt: #1d252d;
-    /* Lifted slate card surface */
-    --text: #f4ecdf;
-    /* Warm off-white text */
-    --text-secondary: #bdc8d0;
-    /* Soft cool body text */
-    --text-muted: #81909a;
-    /* Muted metadata */
-    --border: #303b45;
-    /* Low-glare divider */
-    --grid-line: rgba(211, 226, 235, 0.14);
-    --matrix-line: rgba(211, 226, 235, 0.22);
-    --accent: #ff8a61;
-    /* Luminous coral in dark mode */
-    --accent-hover: #ffad8f;
-    --cool-accent: #86c5e8;
+    --bg: #050505;
+    --bg-alt: #0f0f0f;
+    --text: #eeeeee;
+    --text-secondary: #b0b0b0;
+    --text-muted: #6b6b6b;
+    --border: #222222;
+    --grid-line: rgba(255, 255, 255, 0.035);
+    --matrix-line: rgba(255, 255, 255, 0.05);
+    --accent: #ffffff;
+    --accent-hover: #cccccc;
+    --cool-accent: #999999;
 }
 
 [data-theme="arcade"] {
@@ -223,6 +216,15 @@ li {
         width: 30px;
         height: 30px;
         border-color: var(--accent);
+    }
+
+    [data-theme="minimalist"] .site-cursor {
+        border-color: #fff;
+        color: #fff;
+    }
+
+    [data-theme="minimalist"] .site-cursor.is-hovering {
+        border-color: #fff;
     }
 }
 
@@ -1497,4 +1499,4 @@ body.modal-open {
         width: 34px;
         height: 34px;
     }
-}
+}
