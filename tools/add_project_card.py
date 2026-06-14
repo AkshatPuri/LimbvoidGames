@@ -307,7 +307,7 @@ def build_action_html(links: list[dict[str, str]], wip: bool) -> str:
         url = html.escape(link["url"], quote=True)
         title = html.escape(link["title"], quote=True)
         icon = html.escape(link["icon"], quote=True)
-        link_lines.append(f'                            <a href="{url}" target="_blank" title="{title}"><i class="{icon}"></i></a>')
+        link_lines.append(f'                            <a href="{url}" target="_blank" rel="noopener" title="{title}"><i class="{icon}"></i></a>')
 
     return f"""                        <div class="card-links">
 {chr(10).join(link_lines)}

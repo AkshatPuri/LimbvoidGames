@@ -19,33 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         forest: { icon: 'fas fa-tree', label: 'Forest theme' },
         mono: { icon: 'fas fa-adjust', label: 'Mono theme' }
     };
-    let projectCards = [...document.querySelectorAll('.project-card')];
-
-    // ---- Theme Toggle Logic ----
-    const savedTheme = getStoredTheme();
-    setTheme(savedTheme);
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            setTheme(getNextTheme(currentTheme));
-        });
-    }
-
-    setupCircleCursor();
-
-    // Keep every Featured Release at the top, then randomize the supporting project order.
-    const projectGrid = projectCards[0]?.parentElement;
-    const featuredCards = projectCards.filter((card) => card.querySelector('.card-badge'));
-    const supportingCards = shuffle(projectCards.filter((card) => !card.querySelector('.card-badge')));
-    projectCards = [...featuredCards, ...supportingCards];
-
-    if (projectGrid) {
-        projectCards.forEach((card) => projectGrid.appendChild(card));
-    }
-
-    // Pack projects into varied full-width rows.
-    const featuredProjectLayouts = pickRandom([
+    const projectCards = [...document.querySelectorAll('.project-card')];
+    const featuredProjectLayouts = [
         [
             { span: 4, height: 235 },
             { span: 2, height: 220 },
@@ -61,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { span: 2, height: 235 },
             { span: 2, height: 215 }
         ]
-    ]);
-    const rowPatterns = shuffle([
+    ];
+    const rowPatterns = [
         [4, 2, 2],
         [3, 3, 2],
         [3, 2, 3],
@@ -70,48 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
         [2, 4, 2],
         [2, 2, 4],
         [2, 2, 2, 2]
-    ]);
+    ];
     const heightBands = [
         { min: 178, max: 210 },
         { min: 190, max: 228 },
         { min: 202, max: 238 }
     ];
-    let cardIndex = 0;
 
-    featuredProjectLayouts.forEach((layout) => {
-        const card = projectCards[cardIndex];
-        if (!card) {
-            return;
-        }
+    // ---- Theme Toggle Logic ----
+    setTheme('light');
 
-        card.style.setProperty('--project-span', layout.span);
-        card.style.setProperty('--project-height', `${layout.height}px`);
-        card.classList.add('featured-project-card');
-        cardIndex += 1;
-    });
-
-    while (cardIndex < projectCards.length) {
-        const remaining = projectCards.length - cardIndex;
-        const availablePatterns = rowPatterns.filter((pattern) => {
-            const cardsAfterThisRow = remaining - pattern.length;
-            return pattern.length <= remaining && canPackRemainingRows(cardsAfterThisRow);
-        });
-        const pattern = availablePatterns[Math.floor(Math.random() * availablePatterns.length)];
-
-        pattern.forEach((span) => {
-            const card = projectCards[cardIndex];
-            if (!card) {
-                return;
-            }
-
-            const heightBand = pickRandom(heightBands);
-            const height = randomBetween(heightBand.min, heightBand.max);
-            card.style.setProperty('--project-span', span);
-            card.style.setProperty('--project-height', `${height}px`);
-            cardIndex += 1;
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            setTheme(getNextTheme(currentTheme));
         });
     }
 
+    setupProjectGrid(projectCards);
+    setupCircleCursor();
     setupCardPopIn();
     setupBioTyping();
 
@@ -124,11 +76,106 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function shuffle(items) {
-        return [...items].sort(() => Math.random() - 0.5);
+        const shuffled = [...items];
+        for (let index = shuffled.length - 1; index > 0; index -= 1) {
+            const swapIndex = Math.floor(Math.random() * (index + 1));
+            [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+        }
+        return shuffled;
     }
 
     function canPackRemainingRows(count) {
         return count === 0 || count === 3 || count === 4 || count >= 6;
+    }
+
+    function setupProjectGrid(cards) {
+        if (!cards.length) {
+            return;
+        }
+
+        const projectGrid = cards[0].parentElement;
+        if (!projectGrid) {
+            return;
+        }
+
+        const featuredCards = cards.filter(isFeaturedCard);
+        const supportingCards = shuffle(cards.filter((card) => !isFeaturedCard(card)));
+        const orderedCards = [...featuredCards, ...supportingCards];
+
+        orderedCards.forEach((card) => projectGrid.appendChild(card));
+        const supportingStartIndex = applyFeaturedLayouts(orderedCards);
+        applySupportingLayouts(orderedCards, supportingStartIndex);
+    }
+
+    function isFeaturedCard(card) {
+        return Boolean(card.querySelector('.card-badge'));
+    }
+
+    function applyFeaturedLayouts(cards) {
+        const layouts = pickRandom(featuredProjectLayouts);
+        layouts.forEach((layout, index) => {
+            const card = cards[index];
+            if (!card) {
+                return;
+            }
+
+            applyProjectLayout(card, layout);
+            card.classList.add('featured-project-card');
+        });
+        return Math.min(layouts.length, cards.length);
+    }
+
+    function applySupportingLayouts(cards, startIndex) {
+        let cardIndex = startIndex;
+
+        while (cardIndex < cards.length) {
+            const remaining = cards.length - cardIndex;
+            const pattern = pickRowPattern(remaining);
+
+            pattern.forEach((span) => {
+                const card = cards[cardIndex];
+                if (!card) {
+                    return;
+                }
+
+                const heightBand = pickRandom(heightBands);
+                applyProjectLayout(card, {
+                    span,
+                    height: randomBetween(heightBand.min, heightBand.max)
+                });
+                cardIndex += 1;
+            });
+        }
+    }
+
+    function pickRowPattern(remaining) {
+        const availablePatterns = shuffle(rowPatterns).filter((pattern) => {
+            const cardsAfterThisRow = remaining - pattern.length;
+            return pattern.length <= remaining && canPackRemainingRows(cardsAfterThisRow);
+        });
+
+        return availablePatterns[0] || fallbackRowPattern(remaining);
+    }
+
+    function fallbackRowPattern(remaining) {
+        if (remaining === 5) {
+            return [4, 4];
+        }
+        if (remaining >= 4) {
+            return [2, 2, 2, 2];
+        }
+        if (remaining === 3) {
+            return [3, 3, 2];
+        }
+        if (remaining === 2) {
+            return [4, 4];
+        }
+        return [8];
+    }
+
+    function applyProjectLayout(card, layout) {
+        card.style.setProperty('--project-span', layout.span);
+        card.style.setProperty('--project-height', `${layout.height}px`);
     }
 
     function setupCardPopIn() {
@@ -199,23 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.setTimeout(typeNextCharacter, 520);
     }
 
-    function getStoredTheme() {
-        try {
-            const storedTheme = localStorage.getItem('theme');
-            return themes.includes(storedTheme) ? storedTheme : 'light';
-        } catch (error) {
-            return 'light';
-        }
-    }
-
     function setTheme(theme) {
         const activeTheme = themes.includes(theme) ? theme : 'light';
         document.documentElement.setAttribute('data-theme', activeTheme);
-        try {
-            localStorage.setItem('theme', activeTheme);
-        } catch (error) {
-            // Theme still changes even if storage is unavailable.
-        }
         updateThemeIcon(activeTheme);
     }
 

@@ -8,7 +8,6 @@
     --text-secondary: #4f6070;  /* Cool readable body text */
     --text-muted: #87929e;      /* Quiet metadata */
     --border: #d8cfc1;          /* Warm neutral divider */
-    --border-hover: #98a7b4;    /* Cool hover divider */
     --grid-line: rgba(31, 42, 53, 0.16);
     --page-grid: rgba(31, 42, 53, 0.085);
     --matrix-line: rgba(31, 42, 53, 0.24);
@@ -32,7 +31,6 @@
     --text-secondary: #bdc8d0;  /* Soft cool body text */
     --text-muted: #81909a;      /* Muted metadata */
     --border: #303b45;          /* Low-glare divider */
-    --border-hover: #607080;
     --grid-line: rgba(211, 226, 235, 0.14);
     --page-grid: rgba(211, 226, 235, 0.075);
     --matrix-line: rgba(211, 226, 235, 0.22);
@@ -49,7 +47,6 @@
     --text-secondary: #c6d4dc;  /* Cool readable body text */
     --text-muted: #81939e;      /* Muted terminal metadata */
     --border: #2d3743;          /* Quiet steel divider */
-    --border-hover: #f2b84b;
     --grid-line: rgba(242, 184, 75, 0.18);
     --page-grid: rgba(91, 210, 203, 0.085);
     --matrix-line: rgba(91, 210, 203, 0.26);
@@ -66,7 +63,6 @@
     --text-secondary: #c3cbb6;  /* Soft herb body text */
     --text-muted: #83917e;      /* Quiet sage metadata */
     --border: #303c2f;          /* Organic divider */
-    --border-hover: #d7a955;
     --grid-line: rgba(140, 172, 112, 0.18);
     --page-grid: rgba(140, 172, 112, 0.075);
     --matrix-line: rgba(215, 169, 85, 0.28);
@@ -83,7 +79,6 @@
     --text-secondary: #4d5358;  /* Neutral body text */
     --text-muted: #848b91;      /* Soft graphite metadata */
     --border: #c9ced2;          /* Clean divider */
-    --border-hover: #16181a;
     --grid-line: rgba(22, 24, 26, 0.16);
     --page-grid: rgba(22, 24, 26, 0.07);
     --matrix-line: rgba(22, 24, 26, 0.24);
@@ -238,7 +233,7 @@ li {
     font-size: 22px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     display: inline-block;
     transition: color 0.24s ease, transform 0.24s ease, letter-spacing 0.24s ease;
 }
@@ -332,16 +327,27 @@ li {
 }
 
 .unified-grid {
-    --matrix-gap: 24px;
+    --matrix-gap: clamp(16px, 2vw, 24px);
+    --intro-gap: 16px;
     --frame-offset: 14px;
     display: grid;
     grid-template-columns:
-        minmax(0, 1fr)
-        repeat(6, minmax(0, 183px))
-        minmax(0, 1fr);
+        minmax(0, 0.35fr)
+        repeat(6, minmax(0, 1fr))
+        minmax(0, 0.35fr);
     gap: var(--matrix-gap);
-    padding: 12px;
+    padding: clamp(8px, 1.1vw, 12px);
     overflow: visible;
+}
+
+.intro-grid {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(60vw, 1180px);
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: var(--intro-gap);
 }
 
 /* Bento Card Base Styling */
@@ -414,20 +420,20 @@ li {
 }
 
 @media (min-width: 1025px) {
-    .bio-card {
-        grid-column: 2 / span 4;
+    .intro-grid .bio-card {
+        grid-column: 1 / span 4;
     }
 
-    .photo-card {
-        grid-column: 6 / span 2;
+    .intro-grid .photo-card {
+        grid-column: 5 / span 2;
     }
 
-    .skills-card {
-        grid-column: 2 / span 3;
+    .intro-grid .skills-card {
+        grid-column: 1 / span 3;
     }
 
-    .socials-card {
-        grid-column: 5 / span 3;
+    .intro-grid .socials-card {
+        grid-column: 4 / span 3;
     }
 
     .work-section-label {
@@ -456,7 +462,7 @@ li {
 .bio-card .display-title {
     font-size: clamp(2rem, 4.5vw, 3rem);
     line-height: 1.1;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     color: var(--text);
 }
 
@@ -531,6 +537,14 @@ li {
     padding: 0;
     background: var(--text);
     isolation: isolate;
+    width: min(100%, 270px);
+    aspect-ratio: 1 / 1;
+    justify-self: center;
+}
+
+.intro-grid .photo-card {
+    width: 100%;
+    justify-self: stretch;
 }
 
 .photo-card::before,
@@ -658,6 +672,7 @@ li {
     display: flex;
     align-items: center;
     gap: 10px;
+    min-width: 0;
     font-size: 14px;
     color: var(--text-secondary);
     font-weight: 500;
@@ -899,6 +914,7 @@ li {
 
 .project-card .card-tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 6px;
 }
 
@@ -1115,6 +1131,24 @@ li {
         padding: 24px;
     }
     
+    .intro-grid {
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .intro-grid .bio-card {
+        grid-column: span 3;
+    }
+
+    .intro-grid .photo-card {
+        grid-column: span 1;
+    }
+
+    .intro-grid .skills-card,
+    .intro-grid .socials-card {
+        grid-column: span 2;
+    }
+
     .unified-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -1156,6 +1190,7 @@ li {
     
     .unified-grid {
         --frame-offset: 8px;
+        --intro-gap: 14px;
         grid-template-columns: 1fr;
         gap: 16px;
         padding: 8px;
@@ -1178,6 +1213,20 @@ li {
     .bento-card {
         padding: 18px;
         transform: none;
+    }
+
+    .photo-card,
+    .project-card {
+        padding: 0;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-grid .photo-card {
+        width: min(100%, 300px);
+        justify-self: center;
     }
 
     .bento-card:hover {
