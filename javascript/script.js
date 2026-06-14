@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                const bioHeight = Math.ceil(bioCard.getBoundingClientRect().height);
+                const bioHeight = bioCard.offsetHeight;
                 if (bioHeight > 0) {
                     profileSide.style.setProperty('--photo-size', `${bioHeight}px`);
                 }
