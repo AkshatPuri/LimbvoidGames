@@ -935,7 +935,7 @@ li {
     padding: clamp(0.75rem, 1.6vh, 0.95rem) clamp(0.8rem, 1.6vw, 1rem);
     display: flex;
     flex-grow: 1;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
     gap: 16px;
     background: var(--bg-alt);
@@ -1508,4 +1508,4 @@ body.modal-open {
         width: 34px;
         height: 34px;
     }
-}
+}
