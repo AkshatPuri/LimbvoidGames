@@ -925,8 +925,9 @@ li {
     padding: clamp(0.75rem, 1.6vh, 0.95rem) clamp(0.8rem, 1.6vw, 1rem);
     display: flex;
     flex-grow: 1;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     background: var(--bg-alt);
     position: relative;
@@ -942,8 +943,10 @@ li {
 
 .project-card .card-meta {
     display: flex;
+    flex: 1 1 11rem;
     flex-direction: column;
     gap: 5px;
+    min-width: min(100%, 10rem);
     overflow: hidden;
 }
 
@@ -963,7 +966,7 @@ li {
     font-size: 15px;
     font-weight: 700;
     color: var(--text);
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     transition: color 0.22s ease;
@@ -999,8 +1002,11 @@ li {
 
 .project-card .card-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
     flex-shrink: 0;
 }
 
@@ -1024,6 +1030,7 @@ li {
 /* WIP Status Badge */
 .project-card .card-status {
     flex-shrink: 0;
+    margin-left: auto;
 }
 
 .project-card .status-wip {
