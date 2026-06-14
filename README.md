@@ -1,40 +1,62 @@
-# Limbvoid Games
+# Limbvoid Games Portfolio
 
-This is the portfolio website of LimbvoidGames. 
-You can check the website at:-
- https://akshatpuri.github.io/LimbvoidGames/
+A premium, responsive matrix-inspired bento grid portfolio website showcasing games, tools, and graphics prototypes.
 
-## Adding Project Cards
+🔗 **Live Portfolio Site**: [akshatpuri.github.io/LimbvoidGames/](https://akshatpuri.github.io/LimbvoidGames/)
 
-Use the local helper script to add future work without hand-editing the card markup:
+---
 
-```powershell
-python tools/add_project_card.py `
-  --title "My New Game" `
-  --image "screenshots/my-new-game.png" `
-  --role "Gameplay prototype with custom tools." `
-  --tags "C#,Unity" `
-  --link "https://limbvoid.itch.io/my-new-game" `
-  --link-title "Itch.io" `
-  --icon "fab fa-itch-io"
+## 🚀 Key Features
+
+*   **Matrix-Inspired Bento Grid**: Responsive layout combining a retro-futuristic hacker aesthetic with modern glassmorphism, terminal carets, and subtle glow animations.
+*   **Dynamic Tech Stack Filtering**: Instantly filters portfolio cards by C++, C#, Tools, or Games. Perfect for recruiters seeking specific engineering skillsets.
+*   **Interactive Project Details**: Hover effects on work cards featuring smooth transformations and interactive badges.
+*   **Theme Integration**: Supports responsive dark/light/arcade mode design palettes.
+
+---
+
+## 🛠️ Project Architecture
+
+```
+LimbvoidGames/
+├── index.html                 # Portfolio main page
+├── css/
+│   └── style.css              # Core typography, animations, and theme layout stylesheet
+├── javascript/
+│   └── script.js              # Bento grid filtering and animations logic
+├── tools/
+│   └── add_project_card.py    # Class-based Tkinter GUI card builder utility
+├── img/                       # Project screenshots and image assets
+├── gifs/                      # Shipped game/tool gameplay GIF previews
+└── AkshatPuriResume.pdf       # Integrated engineering resume
 ```
 
-Add an empty dry-run card to the site so you can test the layout visually:
+---
 
-```powershell
-python tools/add_project_card.py --dry-run
+## 🎴 Portfolio Card Builder GUI
+
+The project includes an interactive Python-based desktop application inside `tools/` that lets you construct, test, and safely delete project cards from `index.html` without manually editing code markup.
+
+### Running the Builder
+
+Ensure Python 3 is installed on your system, then launch the app:
+
+```bash
+py tools/add_project_card.py
 ```
 
-Remove the dry-run card after checking:
+### Key Tool Features
 
-```powershell
-python tools/add_project_card.py --remove-dry-run
-```
+*   **Instant Form Validation**: Guides you with real-time field validation to prevent inserting incomplete cards.
+*   **Intelligent Platform Inference**: Automatically determines the link icon (e.g. Itch.io, Steam, Google Play, App Store, Nintendo Switch, Xbox, GitHub) by parsing your entered project URL.
+*   **Visual Dry-run Testing**: Adds a temporary card with the `[DRY-RUN]` label into your HTML layout so you can check alignments and hover scales before saving.
+*   **One-Click Card Deletion**: Lists all active cards inside a dropdown, allowing you to select and permanently remove any project card.
+*   **Descriptive Field Tooltips**: Displays format examples on hover to guide input styling.
 
-Print the generated card markup without editing files:
+---
 
-```powershell
-python tools/add_project_card.py --print-only --title "My Tool" --image "https://example.com/screenshot.png" --role "Editor utility." --tags "Godot,Tool" --link "https://example.com"
-```
+## 💻 Tech Stack & Credits
 
-The script can copy a local image into `img/`, download an image URL into `img/`, add tags, add links, and mark a card as `--featured` or `--wip`.
+*   **Web Core**: Semantic HTML5, Vanilla CSS3 (Custom properties, transitions, and filters), Vanilla ES6 JavaScript.
+*   **Typography**: Inter (Google Fonts) and JetBrains Mono for system terminals.
+*   **Icons**: Font Awesome (Brands & Solid packages).

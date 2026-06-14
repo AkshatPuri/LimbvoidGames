@@ -1,1 +1,18 @@
+# IDE & Editors
 .vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Python cache & build files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS Metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
