@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="minimalist">
+
 <head>
     <script>
-    (() => {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        }
-    })();
+        (() => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,13 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/212c995959.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="app-container">
         <!-- Minimal Header -->
@@ -27,7 +31,7 @@
             <div class="logo">
                 <a href="#">Limb<span>void</span></a>
             </div>
-            
+
             <div class="header-right">
                 <a href="img/Akshat Puri_CV_2025.pdf" target="_blank" rel="noopener" class="resume-link">
                     <i class="far fa-file-pdf"></i> Resume
@@ -41,7 +45,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="unified-grid">
-                
+
                 <div class="intro-grid">
                     <!-- Bio Card (span-4) -->
                     <div class="bento-card span-4 bio-card">
@@ -49,7 +53,9 @@
                             <h1 class="display-title">Akshat Puri</h1>
                             <p class="subtitle-dev">Gameplay &amp; Tools Programmer</p>
                         </div>
-                        <p class="bio-text">I love games, building the systems behind them, and making tools that help ideas move faster. I am currently developing my own indie game and always exploring new game technology, engine workflows, and playful ways to make development feel better.</p>
+                        <p class="bio-text">I love games, building the systems behind them, and making tools that help
+                            ideas move faster. I am currently developing my own indie game and always exploring new game
+                            technology, engine workflows, and playful ways to make development feel better.</p>
                         <div class="bio-skills" aria-label="Skills">
                             <span>C / C++</span>
                             <span>C#</span>
@@ -62,7 +68,8 @@
                             <span>Plastic SCM</span>
                         </div>
                         <div class="bio-links">
-                            <a href="https://www.youtube.com/watch?v=whk_Isv_YpY" target="_blank" rel="noopener" class="video-btn">
+                            <a href="https://www.youtube.com/watch?v=whk_Isv_YpY" target="_blank" rel="noopener"
+                                class="video-btn">
                                 <i class="fab fa-youtube"></i> Showreel Video
                             </a>
                         </div>
@@ -74,12 +81,18 @@
                             <img src="img/photu.jpg" alt="Akshat Puri" class="profile-photo">
                         </div>
                         <nav class="social-rail" aria-label="Social links">
-                            <a href="https://github.com/AkshatPuri" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/akshat-puri-430407201/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://discord.com/users/Limbvoid#7779" target="_blank" rel="noopener" aria-label="Discord" title="Discord"><i class="fab fa-discord"></i></a>
-                            <a href="https://limbvoid.itch.io/" target="_blank" rel="noopener" aria-label="Itch.io" title="Itch.io"><i class="fab fa-itch-io"></i></a>
-                            <a href="https://www.buymeacoffee.com/limbvoid" target="_blank" rel="noopener" aria-label="Support" title="Support"><i class="fas fa-coffee"></i></a>
-                            <a href="mailto:akshatpuri2016@gmail.com" aria-label="Email" title="Email"><i class="far fa-envelope"></i></a>
+                            <a href="https://github.com/AkshatPuri" target="_blank" rel="noopener" aria-label="GitHub"
+                                title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/akshat-puri-430407201/" target="_blank" rel="noopener"
+                                aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://discord.com/users/Limbvoid#7779" target="_blank" rel="noopener"
+                                aria-label="Discord" title="Discord"><i class="fab fa-discord"></i></a>
+                            <a href="https://limbvoid.itch.io/" target="_blank" rel="noopener" aria-label="Itch.io"
+                                title="Itch.io"><i class="fab fa-itch-io"></i></a>
+                            <a href="https://www.buymeacoffee.com/limbvoid" target="_blank" rel="noopener"
+                                aria-label="Support" title="Support"><i class="fas fa-coffee"></i></a>
+                            <a href="mailto:akshatpuri2016@gmail.com" aria-label="Email" title="Email"><i
+                                    class="far fa-envelope"></i></a>
                         </nav>
                     </div>
                 </div>
@@ -100,273 +113,296 @@
 
                     <!-- Bonfire 1 (span-4) -->
                     <div class="bento-card span-4 project-card">
-                    <div class="card-media">
-                        <img src="img/bonfire1logogif.gif" alt="The Bonfire: Forsaken Lands" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <span class="card-badge">Featured</span>
-                            <h3 class="card-title">The Bonfire: Forsaken Lands</h3>
-                            <p class="card-role">Gameplay systems and multi-platform release work.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/bonfire1logogif.gif" alt="The Bonfire: Forsaken Lands" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <span class="card-badge">Featured</span>
+                                <h3 class="card-title">The Bonfire: Forsaken Lands</h3>
+                                <p class="card-role">Gameplay systems and multi-platform release work.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.xigmagames.thebonfireFL&gl=US"
+                                    target="_blank" rel="noopener" title="Google Play Store"><i
+                                        class="fab fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/in/app/the-bonfire-forsaken-lands/id1218799102"
+                                    target="_blank" rel="noopener" title="App Store"><i class="fab fa-apple"></i></a>
+                                <a href="https://store.steampowered.com/app/788210/The_Bonfire_Forsaken_Lands/"
+                                    target="_blank" rel="noopener" title="Steam"><i class="fab fa-steam"></i></a>
+                                <a href="https://www.xbox.com/en-us/games/store/the-bonfire-forsaken-lands/9NKK5FZHHF02"
+                                    target="_blank" rel="noopener" title="Xbox"><i class="fab fa-xbox"></i></a>
+                                <a href="https://www.nintendo.com/store/products/the-bonfire-forsaken-lands-switch/"
+                                    target="_blank" rel="noopener" title="Nintendo Switch"><i
+                                        class="fab fa-nintendo-switch"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.xigmagames.thebonfireFL&gl=US" target="_blank" rel="noopener" title="Google Play Store"><i class="fab fa-google-play"></i></a>
-                            <a href="https://apps.apple.com/in/app/the-bonfire-forsaken-lands/id1218799102" target="_blank" rel="noopener" title="App Store"><i class="fab fa-apple"></i></a>
-                            <a href="https://store.steampowered.com/app/788210/The_Bonfire_Forsaken_Lands/" target="_blank" rel="noopener" title="Steam"><i class="fab fa-steam"></i></a>
-                            <a href="https://www.xbox.com/en-us/games/store/the-bonfire-forsaken-lands/9NKK5FZHHF02" target="_blank" rel="noopener" title="Xbox"><i class="fab fa-xbox"></i></a>
-                            <a href="https://www.nintendo.com/store/products/the-bonfire-forsaken-lands-switch/" target="_blank" rel="noopener" title="Nintendo Switch"><i class="fab fa-nintendo-switch"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Bonfire 2 (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/bonfire2citygif.gif" alt="The Bonfire 2: Uncharted Shores" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <span class="card-badge">Featured</span>
-                            <h3 class="card-title">The Bonfire 2: Uncharted Shores</h3>
-                            <p class="card-role">Gameplay programming for a survival strategy sequel.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/bonfire2citygif.gif" alt="The Bonfire 2: Uncharted Shores" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <span class="card-badge">Featured</span>
+                                <h3 class="card-title">The Bonfire 2: Uncharted Shores</h3>
+                                <p class="card-role">Gameplay programming for a survival strategy sequel.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.xigmaGames.thebonfire2&gl=US"
+                                    target="_blank" rel="noopener" title="Google Play Store"><i
+                                        class="fab fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/in/app/the-bonfire-2-uncharted-shores/id1448849222"
+                                    target="_blank" rel="noopener" title="App Store"><i class="fab fa-apple"></i></a>
+                                <a href="https://store.steampowered.com/app/1155880/The_Bonfire_2_Uncharted_Shores/?curator_clanid=37622027"
+                                    target="_blank" rel="noopener" title="Steam"><i class="fab fa-steam"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.xigmaGames.thebonfire2&gl=US" target="_blank" rel="noopener" title="Google Play Store"><i class="fab fa-google-play"></i></a>
-                            <a href="https://apps.apple.com/in/app/the-bonfire-2-uncharted-shores/id1448849222" target="_blank" rel="noopener" title="App Store"><i class="fab fa-apple"></i></a>
-                            <a href="https://store.steampowered.com/app/1155880/The_Bonfire_2_Uncharted_Shores/?curator_clanid=37622027" target="_blank" rel="noopener" title="Steam"><i class="fab fa-steam"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- The Tree Creator (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/tree-creator.png" alt="The Tree Creator" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <span class="card-badge">Featured</span>
-                            <h3 class="card-title">The Tree Creator</h3>
-                            <p class="card-role">Visual upgrade tree editor with JSON export.</p>
-                            <div class="card-tags">
-                                <span class="tag">Godot</span>
-                                <span class="tag">Tool</span>
+                        <div class="card-media">
+                            <img src="img/tree-creator.png" alt="The Tree Creator" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <span class="card-badge">Featured</span>
+                                <h3 class="card-title">The Tree Creator</h3>
+                                <p class="card-role">Visual upgrade tree editor with JSON export.</p>
+                                <div class="card-tags">
+                                    <span class="tag">Godot</span>
+                                    <span class="tag">Tool</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://limbvoid.itch.io/the-tree-creator" target="_blank" rel="noopener"
+                                    title="Itch.io"><i class="fab fa-itch-io"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://limbvoid.itch.io/the-tree-creator" target="_blank" rel="noopener" title="Itch.io"><i class="fab fa-itch-io"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Metal Haven (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/metalhaven.png" alt="Metal Haven" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <span class="card-badge">Featured</span>
-                            <h3 class="card-title">Metal Haven</h3>
-                            <p class="card-role">Experimental action systems and combat prototype.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/metalhaven.png" alt="Metal Haven" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <span class="card-badge">Featured</span>
+                                <h3 class="card-title">Metal Haven</h3>
+                                <p class="card-role">Experimental action systems and combat prototype.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-status">
+                                <span class="status-wip"><i class="fas fa-hammer"></i> WIP</span>
                             </div>
                         </div>
-                        <div class="card-status">
-                            <span class="status-wip"><i class="fas fa-hammer"></i> WIP</span>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Scream Way Up (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/screamgif.gif" alt="Scream Way Up" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Scream Way Up</h3>
-                            <p class="card-role">Voice-reactive mobile arcade gameplay.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/screamgif.gif" alt="Scream Way Up" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Scream Way Up</h3>
+                                <p class="card-role">Voice-reactive mobile arcade gameplay.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.Limbvoid.ScreamWayUp"
+                                    target="_blank" rel="noopener" title="Google Play Store"><i
+                                        class="fab fa-google-play"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.Limbvoid.ScreamWayUp" target="_blank" rel="noopener" title="Google Play Store"><i class="fab fa-google-play"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Smash Ant (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/antsgif.gif" alt="Smash Ant" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Smash Ant</h3>
-                            <p class="card-role">Tap-based mobile arcade loop and polish.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/antsgif.gif" alt="Smash Ant" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Smash Ant</h3>
+                                <p class="card-role">Tap-based mobile arcade loop and polish.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.Tentaxaur.SmashAnt"
+                                    target="_blank" rel="noopener" title="Google Play Store"><i
+                                        class="fab fa-google-play"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.Tentaxaur.SmashAnt" target="_blank" rel="noopener" title="Google Play Store"><i class="fab fa-google-play"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Shooter Jumper (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/shooterjumpergif.gif" alt="Shooter Jumper" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Shooter Jumper</h3>
-                            <p class="card-role">Fast platform shooter prototype for itch.io.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/shooterjumpergif.gif" alt="Shooter Jumper" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Shooter Jumper</h3>
+                                <p class="card-role">Fast platform shooter prototype for itch.io.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://limbvoid.itch.io/shooter-jumper" target="_blank" rel="noopener"
+                                    title="Itch.io"><i class="fab fa-itch-io"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://limbvoid.itch.io/shooter-jumper" target="_blank" rel="noopener" title="Itch.io"><i class="fab fa-itch-io"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Long Pong (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/ponggif.gif" alt="Long Pong" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Long Pong</h3>
-                            <p class="card-role">Two-player arcade game built with SFML.</p>
-                            <div class="card-tags">
-                                <span class="tag">C++</span>
-                                <span class="tag">SFML</span>
+                        <div class="card-media">
+                            <img src="img/ponggif.gif" alt="Long Pong" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Long Pong</h3>
+                                <p class="card-role">Two-player arcade game built with SFML.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C++</span>
+                                    <span class="tag">SFML</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <!-- Fluttery Bird (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/flattybirdgif.gif" alt="Fluttery Bird" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Fluttery Bird</h3>
-                            <p class="card-role">Physics-based arcade clone in C++.</p>
-                            <div class="card-tags">
-                                <span class="tag">C++</span>
-                                <span class="tag">SFML</span>
+                        <div class="card-media">
+                            <img src="img/flattybirdgif.gif" alt="Fluttery Bird" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Fluttery Bird</h3>
+                                <p class="card-role">Physics-based arcade clone in C++.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C++</span>
+                                    <span class="tag">SFML</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://github.com/AkshatPuri/FlattyBird-Sfml" target="_blank" rel="noopener"
+                                    title="GitHub"><i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://github.com/AkshatPuri/FlattyBird-Sfml" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Trip (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/tripgif.gif" alt="Trip" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Trip</h3>
-                            <p class="card-role">Mobile game prototype with Unity gameplay systems.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/tripgif.gif" alt="Trip" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Trip</h3>
+                                <p class="card-role">Mobile game prototype with Unity gameplay systems.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.Crabshat.Trip"
+                                    target="_blank" rel="noopener" title="Google Play Store"><i
+                                        class="fab fa-google-play"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.Crabshat.Trip" target="_blank" rel="noopener" title="Google Play Store"><i class="fab fa-google-play"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Dots (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/dotsgif.gif" alt="Dots" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Dots</h3>
-                            <p class="card-role">Minimal mobile puzzle/arcade interaction loop.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/dotsgif.gif" alt="Dots" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Dots</h3>
+                                <p class="card-role">Minimal mobile puzzle/arcade interaction loop.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.Crabshat.Dots&gl"
+                                    target="_blank" rel="noopener" title="Google Play Store"><i
+                                        class="fab fa-google-play"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.Crabshat.Dots&gl" target="_blank" rel="noopener" title="Google Play Store"><i class="fab fa-google-play"></i></a>
-                        </div>
                     </div>
-                </div>
 
                     <!-- Can You Do It (span-2) -->
                     <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/canyoudoit.png" alt="Can You Do It" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <h3 class="card-title">Can You Do It</h3>
-                            <p class="card-role">Small experimental challenge game for itch.io.</p>
-                            <div class="card-tags">
-                                <span class="tag">C#</span>
-                                <span class="tag">Unity</span>
+                        <div class="card-media">
+                            <img src="img/canyoudoit.png" alt="Can You Do It" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <h3 class="card-title">Can You Do It</h3>
+                                <p class="card-role">Small experimental challenge game for itch.io.</p>
+                                <div class="card-tags">
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Unity</span>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://limbvoid.itch.io/can-you-do-it" target="_blank" rel="noopener"
+                                    title="Itch.io"><i class="fab fa-itch-io"></i></a>
                             </div>
                         </div>
-                        <div class="card-links">
-                            <a href="https://limbvoid.itch.io/can-you-do-it" target="_blank" rel="noopener" title="Itch.io"><i class="fab fa-itch-io"></i></a>
-                        </div>
                     </div>
-                    </div>
-                
 
-                <!-- Unannounced Project (span-2) -->
-                <div class="bento-card span-2 project-card">
-                    <div class="card-media">
-                        <img src="img/unannounced_project.png" alt="Unannounced Project" loading="lazy">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-meta">
-                            <span class="card-badge">Featured</span>
-                            <h3 class="card-title">Unannounced Project</h3>
-                            <p class="card-role">Game Designer, Game Programmer</p>
-                            <div class="card-tags">
-                                <span class="tag">Godot</span>
-                                <span class="tag">GDScript</span>
+
+                    <!-- Unannounced Project (span-2) -->
+                    <div class="bento-card span-2 project-card">
+                        <div class="card-media">
+                            <img src="img/unannounced_project.png" alt="Unannounced Project" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-meta">
+                                <span class="card-badge">Featured</span>
+                                <h3 class="card-title">Unannounced Project</h3>
+                                <p class="card-role">Game Designer, Game Programmer</p>
+                                <div class="card-tags">
+                                    <span class="tag">Godot</span>
+                                    <span class="tag">GDScript</span>
+                                </div>
+                            </div>
+                            <div class="card-status">
+                                <span class="status-wip"><i class="fas fa-hammer"></i> WIP</span>
                             </div>
                         </div>
-                        <div class="card-status">
-                            <span class="status-wip"><i class="fas fa-hammer"></i> WIP</span>
-                        </div>
                     </div>
-                </div>
-</section>
+                </section>
             </div>
         </main>
 
@@ -384,11 +420,14 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="video-modal-wrapper">
-                <iframe id="showreelIframe" src="" title="Akshat Puri Showreel Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="showreelIframe" src="" title="Akshat Puri Showreel Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
     <script src="javascript/script.js"></script>
 </body>
+
 </html>

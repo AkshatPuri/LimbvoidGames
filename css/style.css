@@ -96,23 +96,18 @@
     /* Moss counterpoint */
 }
 
-
-[data-theme="mono"] {
-    --bg: #050505;
-    --bg-alt: #111111;
-
-    --text: #f5f5f5;
-    --text-secondary: #c8c8c8;
-    --text-muted: #7f7f7f;
-
-    --border: #242424;
-
-    --grid-line: rgba(255,255,255,0.06);
-    --matrix-line: rgba(255,255,255,0.08);
-
-    --accent: #ffffff;
-    --accent-hover: #d8d8d8;
-    --cool-accent: #8a8a8a;
+[data-theme="minimalist"] {
+    --bg: #f5f5f7;
+    --bg-alt: #ffffff;
+    --text: #111111;
+    --text-secondary: #444444;
+    --text-muted: #888888;
+    --border: #eaeaea;
+    --grid-line: rgba(0, 0, 0, 0.04);
+    --matrix-line: rgba(0, 0, 0, 0.05);
+    --accent: #000000;
+    --accent-hover: #333333;
+    --cool-accent: #666666;
 }
 
 /* ==========================================
@@ -186,6 +181,8 @@ li {
         width: 18px;
         height: 18px;
         border: 2px solid var(--text);
+        color: var(--text);
+        mix-blend-mode: difference;
         border-radius: 0;
         pointer-events: none;
         transform: translate(-50%, -50%);
@@ -938,7 +935,7 @@ li {
     padding: clamp(0.75rem, 1.6vh, 0.95rem) clamp(0.8rem, 1.6vw, 1rem);
     display: flex;
     flex-grow: 1;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 16px;
     background: var(--bg-alt);
@@ -1059,25 +1056,6 @@ li {
     gap: 4px;
 }
 
-[data-theme="mono"] .profile-photo {
-    filter: grayscale(100%) contrast(1.15);
-    transition: filter 0.35s ease, transform 0.35s ease;
-}
-
-[data-theme="mono"] .photo-card:hover .profile-photo {
-    filter: grayscale(0%) contrast(1.1);
-}
-
-[data-theme="mono"] .project-card .card-media img {
-    filter: grayscale(100%) contrast(1.05);
-    transition:
-        filter 0.35s ease,
-        transform 0.35s ease;
-}
-
-[data-theme="mono"] .project-card:hover .card-media img {
-    filter: grayscale(0%) contrast(1.05);
-}
 
 @keyframes cardPopIn {
     0% {
@@ -1397,6 +1375,7 @@ li {
         white-space: normal;
     }
 }
+
 @media (max-width: 380px) {
     .global-header .logo a {
         font-size: 18px;
@@ -1523,7 +1502,7 @@ body.modal-open {
         width: calc(100% - 24px);
         padding: 8px;
     }
-    
+
     .video-modal-close {
         top: -42px;
         width: 34px;

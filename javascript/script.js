@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
-    const themes = ['light', 'dark', 'arcade', 'forest', 'mono'];
+    const themes = ['minimalist', 'light', 'dark', 'arcade', 'forest'];
     const themeMeta = {
+        minimalist: { icon: 'fas fa-feather', label: 'Minimalist theme' },
         light: { icon: 'fas fa-moon', label: 'Light theme' },
         dark: { icon: 'fas fa-sun', label: 'Dark theme' },
         arcade: { icon: 'fas fa-gamepad', label: 'Arcade theme' },
-        forest: { icon: 'fas fa-tree', label: 'Forest theme' },
-        mono: { icon: 'fas fa-adjust', label: 'Mono theme' }
+        forest: { icon: 'fas fa-tree', label: 'Forest theme' }
     };
     const projectCards = [...document.querySelectorAll('.project-card')];
     const pinnedFeaturedTitles = ['Unannounced Project', 'The Tree Creator', 'The Bonfire 2: Uncharted Shores', 'Metal Haven', 'The Bonfire: Forsaken Lands'];
