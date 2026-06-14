@@ -1055,10 +1055,6 @@ li {
     gap: 4px;
 }
 
-/* ------------------------------------------
-   Images
-   ------------------------------------------ */
-
 [data-theme="mono"] .profile-photo {
     filter: grayscale(100%) contrast(1.15);
     transition: filter 0.35s ease, transform 0.35s ease;

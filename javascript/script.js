@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'clamp(11.5rem, 25vh, 15rem)'
     ];
 
-    // ---- Theme Toggle Logic ----
-    setTheme('light');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -387,9 +387,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function setTheme(theme) {
+    function setTheme(theme) 
+    {
         const activeTheme = themes.includes(theme) ? theme : 'light';
         document.documentElement.setAttribute('data-theme', activeTheme);
+        localStorage.setItem('theme', activeTheme);
         updateThemeIcon(activeTheme);
     }
 
