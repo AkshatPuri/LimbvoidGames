@@ -158,7 +158,7 @@ def prepare_media(image: str, title: str) -> str:
     if not source.exists():
         raise FileNotFoundError(f"Image not found: {source}")
 
-    if source.is_relative_to(DEFAULT_IMAGE_DIR) or source.is_relative_to(ROOT / "gifs"):
+    if source.is_relative_to(DEFAULT_IMAGE_DIR):
         return to_site_path(source)
 
     DEFAULT_IMAGE_DIR.mkdir(exist_ok=True)
@@ -174,7 +174,7 @@ def preview_media(image: str, title: str) -> str:
     source = Path(image)
     if not source.is_absolute():
         source = ROOT / source
-    if source.exists() and (source.is_relative_to(DEFAULT_IMAGE_DIR) or source.is_relative_to(ROOT / "gifs")):
+    if source.exists() and source.is_relative_to(DEFAULT_IMAGE_DIR):
         return to_site_path(source)
     return f"img/{slugify(title)}{source.suffix.lower() or '.png'}"
 
@@ -310,7 +310,7 @@ class ProjectCardBuilderGUI:
         self.entry_image = ttk.Entry(img_frame)
         self.entry_image.grid(row=0, column=0, sticky=tk.EW)
         
-        img_tip = "e.g., img/screenshot.png, gifs/gameplay.gif, or https://example.com/preview.png"
+        img_tip = "e.g., img/screenshot.png or https://example.com/preview.png"
         ToolTip(lbl_image, img_tip)
         ToolTip(self.entry_image, img_tip)
         
