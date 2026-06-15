@@ -1,6 +1,6 @@
-# Limbvoid Games Portfolio
+# Akshat Puri Games Portfolio
 
-🔗 **Live Portfolio Site**: [akshatpuri.github.io/LimbvoidGames/](https://akshatpuri.github.io/LimbvoidGames/)
+🔗 **Live Portfolio Site**: [akshatpuri.github.io/mywebsite/](https://akshatpuri.github.io/mywebsite/)
 
 ---
 
