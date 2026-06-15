@@ -1038,10 +1038,25 @@ li {
    FOOTER
    ========================================== */
 .footer {
-    padding: 24px 0;
+    margin-top: 100px;
+    padding: 24px 0 40px;
     border-top: 1px solid var(--border);
     text-align: center;
-    font-size: 13px;
+}
+
+.footer-quote {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: var(--text-secondary);
+}
+
+.footer-quote span {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 6px;
     color: var(--text-muted);
 }
 
