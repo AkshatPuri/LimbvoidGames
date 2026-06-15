@@ -1,4 +1,4 @@
-"""Add a project card to the Limbvoid Games portfolio.
+"""Add a project card to the portfolio.
 
 This script runs in GUI mode to easily construct, preview, and delete
 project cards in the portfolio.
@@ -269,13 +269,13 @@ def build_action_html(links: list[dict[str, str]], wip: bool) -> str:
 class ProjectCardBuilderGUI:
     def __init__(self, root: tk.Tk):
         self.root = root
-        self.root.title("Limbvoid Games - Project Card Builder")
+        self.root.title("Portfolio Games - Project Card Builder")
         self.root.geometry("560x540")
         self.root.minsize(500, 480)
         
         self.setup_styles()
         self.create_widgets()
-        self.log("Limbvoid Project Builder UI started.")
+        self.log("Portfolio Project Builder UI started.")
 
     def setup_styles(self):
         style = ttk.Style(self.root)
