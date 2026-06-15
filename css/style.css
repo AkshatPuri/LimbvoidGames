@@ -2,25 +2,17 @@
    DESIGN TOKENS (Soft Low-Contrast Bento Grid)
    ========================================== */
 :root {
-    --bg: #f7efe2;
-    /* Warm paper base */
-    --bg-alt: #fffaf2;
-    /* Clean elevated card surface */
-    --text: #1f2a35;
-    /* Ink blue-charcoal */
-    --text-secondary: #4f6070;
-    /* Cool readable body text */
-    --text-muted: #87929e;
-    /* Quiet metadata */
-    --border: #d8cfc1;
-    /* Warm neutral divider */
-    --grid-line: rgba(31, 42, 53, 0.16);
-    --matrix-line: rgba(31, 42, 53, 0.24);
-    --accent: #d45f43;
-    /* Warm coral action color */
-    --accent-hover: #a94732;
-    --cool-accent: #2f6f8f;
-    /* Cool counterpoint */
+    --bg: #f5f5f7;
+    --bg-alt: #ffffff;
+    --text: #111111;
+    --text-secondary: #444444;
+    --text-muted: #888888;
+    --border: #eaeaea;
+    --grid-line: rgba(0, 0, 0, 0.04);
+    --matrix-line: rgba(0, 0, 0, 0.05);
+    --accent: #000000;
+    --accent-hover: #333333;
+    --cool-accent: #666666;
 
     --font-sans: 'Noto Serif Khitan Small Script', system-ui, -apple-system, sans-serif;
     --font-heading: 'Noto Serif Khitan Small Script', serif;
@@ -67,41 +59,6 @@
     /* CRT cyan counterpoint */
 }
 
-[data-theme="forest"] {
-    --bg: #0c120f;
-    /* Deep pine base */
-    --bg-alt: #172018;
-    /* Moss-dark panel surface */
-    --text: #f0ead8;
-    /* Warm parchment text */
-    --text-secondary: #c3cbb6;
-    /* Soft herb body text */
-    --text-muted: #83917e;
-    /* Quiet sage metadata */
-    --border: #303c2f;
-    /* Organic divider */
-    --grid-line: rgba(140, 172, 112, 0.18);
-    --matrix-line: rgba(215, 169, 85, 0.28);
-    --accent: #d7a955;
-    /* Brass highlight */
-    --accent-hover: #f0ca78;
-    --cool-accent: #6fab75;
-    /* Moss counterpoint */
-}
-
-[data-theme="minimalist"] {
-    --bg: #f5f5f7;
-    --bg-alt: #ffffff;
-    --text: #111111;
-    --text-secondary: #444444;
-    --text-muted: #888888;
-    --border: #eaeaea;
-    --grid-line: rgba(0, 0, 0, 0.04);
-    --matrix-line: rgba(0, 0, 0, 0.05);
-    --accent: #000000;
-    --accent-hover: #333333;
-    --cool-accent: #666666;
-}
 
 /* ==========================================
    RESET & BASE STYLES

@@ -11,13 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
-    const themes = ['minimalist', 'light', 'dark', 'arcade', 'forest'];
+    const themes = ['minimalist', 'dark', 'arcade'];
     const themeMeta = {
         minimalist: { icon: 'fas fa-feather', label: 'Minimalist theme' },
-        light: { icon: 'fas fa-moon', label: 'Light theme' },
-        dark: { icon: 'fas fa-sun', label: 'Dark theme' },
+        dark: { icon: 'fas fa-moon', label: 'Dark theme' },
         arcade: { icon: 'fas fa-gamepad', label: 'Arcade theme' },
-        forest: { icon: 'fas fa-tree', label: 'Forest theme' }
     };
     const projectCards = [...document.querySelectorAll('.project-card')];
     const pinnedFeaturedTitles = ['Unannounced Project', 'The Tree Creator', 'The Bonfire 2: Uncharted Shores', 'Metal Haven', 'The Bonfire: Forsaken Lands'];
@@ -38,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'clamp(11.5rem, 25vh, 15rem)'
     ];
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'minimalist';
     setTheme(savedTheme);
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'minimalist';
             setTheme(getNextTheme(currentTheme));
         });
     }
@@ -354,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setTheme(theme) {
-        const activeTheme = themes.includes(theme) ? theme : 'light';
+        const activeTheme = themes.includes(theme) ? theme : 'minimalist';
         document.documentElement.setAttribute('data-theme', activeTheme);
         localStorage.setItem('theme', activeTheme);
         updateThemeIcon(activeTheme);
@@ -371,9 +369,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const nextTheme = getNextTheme(theme);
-        themeIcon.className = themeMeta[theme].icon;
+        themeIcon.className = themeMeta[nextTheme].icon;
         themeToggle?.setAttribute('aria-label', `Switch to ${themeMeta[nextTheme].label.toLowerCase()}`);
-        themeToggle?.setAttribute('title', themeMeta[theme].label);
+        themeToggle?.setAttribute('title', `Switch to ${themeMeta[nextTheme].label}`);
     }
 
 });
