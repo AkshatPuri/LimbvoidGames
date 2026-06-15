@@ -1012,7 +1012,6 @@ li {
 }
 
 .project-card .card-links a:hover {
-    background: var(--text);
     color: var(--accent);
     transform: translateY(-2px);
 }
