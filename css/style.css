@@ -1242,15 +1242,6 @@ li {
         white-space: normal;
     }
 
-    .bio-links {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .bio-card .video-btn {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 @media (max-width: 380px) {
