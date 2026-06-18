@@ -1,13 +1,3 @@
-.photos-page {
-    background: #fafafa;
-    --bg: #fafafa;
-    --bg-alt: #ffffff;
-    --text: #111111;
-    --text-muted: #666666;
-    --border: #eaeaea;
-    color: var(--text);
-}
-
 .photos-header {
     width: 100%;
     min-height: 70px;

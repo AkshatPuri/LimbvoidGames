@@ -231,7 +231,8 @@ li {
 }
 
 /* Header Right Panel */
-.global-header .header-right {
+.global-header .header-right,
+.photos-header .header-right {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -271,7 +272,8 @@ li {
     transform: translateX(110%);
 }
 
-.global-header .theme-btn {
+.global-header .theme-btn,
+.photos-header .theme-btn {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text);
@@ -286,12 +288,14 @@ li {
     transition: var(--transition);
 }
 
-.global-header .theme-btn:hover {
+.global-header .theme-btn:hover,
+.photos-header .theme-btn:hover {
     background: var(--bg-alt);
     border-color: var(--text);
 }
 
 .global-header .theme-btn:active,
+.photos-header .theme-btn:active,
 .global-header .resume-link:active,
 .bio-card .video-btn:active {
     transform: translate(1px, 1px);
@@ -1119,7 +1123,8 @@ li {
         padding: 0 16px;
     }
 
-    .global-header .header-right {
+    .global-header .header-right,
+    .photos-header .header-right {
         gap: 12px;
     }
 
@@ -1257,7 +1262,8 @@ li {
         display: none;
     }
 
-    .global-header .theme-btn {
+    .global-header .theme-btn,
+    .photos-header .theme-btn {
         width: 34px;
         height: 34px;
     }
