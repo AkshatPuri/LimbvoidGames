@@ -4,6 +4,7 @@
 <head>
     <script>
         (() => {
+            document.documentElement.classList.add('js-enabled');
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
                 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -71,6 +72,9 @@
                             <a href="https://www.youtube.com/watch?v=whk_Isv_YpY" target="_blank" rel="noopener"
                                 class="video-btn">
                                 <i class="fab fa-youtube"></i> Showreel Video
+                            </a>
+                            <a href="photos.html" class="video-btn photo-btn">
+                                <i class="fas fa-camera"></i> Behind the lens
                             </a>
                         </div>
                     </div>

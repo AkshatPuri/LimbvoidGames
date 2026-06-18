@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="minimalist">
+
+<head>
+    <script>
+        (() => {
+            document.documentElement.classList.add('js-enabled');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshat Puri - Photography</title>
+    <meta name="description" content="Photography portfolio of Akshat Puri.">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Noto+Serif+Khitan+Small+Script&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/photos.css?v=rectangle-grid">
+    <script src="https://kit.fontawesome.com/212c995959.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="app-container photos-page">
+        <header class="photos-header" id="navbar">
+            <a class="photos-brand" href="index.html" aria-label="Back to work">
+                <span>Akshat Puri</span>
+            </a>
+        </header>
+
+        <main class="photos-main">
+            <div class="photos-shell">
+                <section class="photography-header" aria-labelledby="photos-title">
+                    <h1 id="photos-title">Moments of Light</h1>
+                    <p>A collection of places, shapes and quiet<br>moments I've captured.</p>
+                </section>
+
+
+                <section class="bento-grid-photos" aria-label="Photo collection">
+                    <article class="photo-item photo-landscape photo-mist">
+                        <img src="img/photos/photo_1.jpg" alt="Mist over Chikmagaluru hills" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Into the Mist</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> CHIKMAGALURU, KARNATAKA</p>
+                            <p class="specs">IPHONE SE (3RD GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-tall photo-midnight">
+                        <img src="img/photos/photo_6.jpg" alt="Black and white building lit at night" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Midnight Geometry</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> BENGALURU, INDIA</p>
+                            <p class="specs">IPHONE SE (2ND GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-arabian">
+                        <img src="img/photos/photo_10.jpg" alt="Varkala beach and sea from above" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Edge of the Arabian Sea</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> VARKALA, KERALA</p>
+                            <p class="specs">IPHONE 16 - 5MM - F/1.6</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-tall photo-knight">
+                        <img src="img/photos/photo_14.jpg" alt="Batman figure by a window" loading="lazy">
+                        <div class="photo-details">
+                            <h3>The Dark Knight</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> BENGALURU, INDIA</p>
+                            <p class="specs">IPHONE SE (2ND GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-sanctuary">
+                        <img src="img/photos/photo_2.jpg" alt="Golden sanctuary roof against storm clouds" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Golden Sanctuary</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> BYLAKUPPE, KARNATAKA</p>
+                            <p class="specs">IPHONE SE (3RD GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-oasis">
+                        <img src="img/photos/photo_5.jpg" alt="Small tower beside a morning lake" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Morning Oasis</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> KODAGU, KARNATAKA</p>
+                            <p class="specs">IPHONE SE (3RD GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-tall photo-wild">
+                        <img src="img/photos/photo_7.jpg" alt="Forest path with shafts of light" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Into the Wild</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> KUMAR PARVATA, KARNATAKA</p>
+                            <p class="specs">IPHONE 16 - 5MM - F/1.6</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-tall photo-twilight">
+                        <img src="img/photos/photo_11.jpg" alt="Sunset reflected in Ulsoor Lake" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Twilight Mirror</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> ULSOOR LAKE, BENGALURU</p>
+                            <p class="specs">IPHONE 16 - 5MM - F/1.6</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-rust">
+                        <img src="img/photos/photo_13.jpg" alt="Rain on a rusted surface in Anantagiri Hills" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Rust &amp; Rain</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> ANANTAGIRI HILLS, TELANGANA</p>
+                            <p class="specs">IPHONE SE (2ND GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-tall photo-pink">
+                        <img src="img/photos/photo_12.jpg" alt="Pink evening sky over Bengaluru" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Evening Blush</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> BENGALURU, INDIA</p>
+                            <p class="specs">IPHONE 16 - 5MM - F/1.6</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-light">
+                        <img src="img/photos/photo_9.jpg" alt="Last light over Kerala backwaters" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Last Light</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> BACKWATERS, KERALA</p>
+                            <p class="specs">IPHONE 16 - 5MM - F/1.6</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-tall photo-home">
+                        <img src="img/photos/photo_3.jpg" alt="Home rooftop garden under a blue sky" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Home</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> BENGALURU, KARNATAKA</p>
+                            <p class="specs">IPHONE SE (3RD GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-top">
+                        <img src="img/photos/photo_8.jpg" alt="Kumar Parvata peak view" loading="lazy">
+                        <div class="photo-details">
+                            <h3>The Top</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> KUMAR PARVATA, KARNATAKA</p>
+                            <p class="specs">IPHONE 16 - 2MM - F/2.2</p>
+                        </div>
+                    </article>
+
+                    <article class="photo-item photo-landscape photo-temple">
+                        <img src="img/photos/photo_4.jpg" alt="Chennakesava temple tower" loading="lazy">
+                        <div class="photo-details">
+                            <h3>Chennakesava Temple</h3>
+                            <p class="location"><i class="fas fa-map-marker-alt" style="margin-right: 4px; opacity: 0.85;"></i> HASSAN DISTRICT, BELUR</p>
+                            <p class="specs">IPHONE SE (2ND GEN) - 3MM - F/1.8</p>
+                        </div>
+                    </article>
+
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding: 5rem 1rem 3rem;">
+            <a href="index.html" class="back-link">
+                Back to Projects
+            </a>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em;">
+                &copy; Akshat Puri. All photos captured by me.
+            </div>
+        </footer>
+    </div>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <img id="lightbox-img" src="" alt="Fullscreen photo">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.photo-item');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.querySelector('img');
+                    const h3 = item.querySelector('h3');
+                    const loc = item.querySelector('.location');
+                    const specs = item.querySelector('.specs');
+
+                    if (img) {
+                        lightboxImg.src = img.src;
+                        lightboxImg.alt = img.alt;
+
+                        let captionText = '';
+                        if (h3) captionText += h3.innerText;
+                        if (loc) captionText += ' - ' + loc.innerText;
+                        if (specs) captionText += ' - ' + specs.innerText;
+                        lightboxCaption.innerText = captionText;
+                        lightbox.setAttribute('aria-hidden', 'false');
+                        lightbox.classList.add('active');
+                    }
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+            });
+        });
+    </script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/photos.js"></script>
+</body>
+
+</html>
